@@ -1,5 +1,4 @@
 {# myapp/templates/layout.html #}
-
 {% from "macros.html" import nav_link with context %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +9,9 @@
     </head>
     <body>
         <ul class="nav-list">
-            {{ nav_link('home', 'Home') }}
-            {{ nav_link('about', 'About') }}
-            {{ nav_link('contact', 'Get in touch') }}
+            {{ nav_link('home.home', 'Home') }}
+            {{ nav_link('home.about', 'About') }}
+            {{ nav_link('home.contact', 'Get in touch') }}
         </ul>
     {% block body %}
     {% endblock %}

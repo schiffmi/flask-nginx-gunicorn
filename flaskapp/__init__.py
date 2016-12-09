@@ -1,9 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template
 from .views import home
 #from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__, instance_relative_config=True)
-app.register_blueprint(home.mod)
 
 # Default Config
 app.config.from_object('config.default')
@@ -15,14 +14,10 @@ app.config.from_pyfile('config.py')
 
 #toolbar = DebugToolbarExtension(app)
 
+app.register_blueprint(home.mod)
 @app.route('/')
 def index():
-  return '<html><head><title>Yolo</title></head><body><h1>Yolo</h1></body></html>'
-
-@app.route('/gfb')
-def gfb():
-  return 'Wow'
-
+    return render_templte('index.html')
 
 for rule in app.url_map.iter_rules():
   print(rule)
