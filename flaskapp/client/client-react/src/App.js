@@ -4,10 +4,18 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {monsters: [], spells: []};
+  }
   componentWillMount() {
-    axios.get('api/')
-      .then(response => { console.log(response.data); })
-      .catch(e =>console.log('Error', e));
+    axios.get('api/monsters')
+      .then(response => this.setState({monsters: response.data.monsters }) )
+      .catch(e => console.log('Error', e));
+    axios.get('api/spells') 
+      .then(response => this.setState({spells: response.data.spells }) )
+      .catch(e => console.log('Error', e));
+
   }
 
   render() {
@@ -24,5 +32,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
