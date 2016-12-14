@@ -10,8 +10,8 @@ class Monsters extends Component {
 	render() {
 		const monsters = this.props.monsters;
 		return (
-			<div>
-				{ monsters.map( monster =>  ( <Monster id={monster.name} monster={monster} /> )) }
+			<div className="container">
+				{ monsters.map( monster =>  ( <Monster key={monster.name} monster={monster} /> )) }
 			</div>
 		);
 	}

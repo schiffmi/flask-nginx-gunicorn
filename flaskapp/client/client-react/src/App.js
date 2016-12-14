@@ -1,26 +1,12 @@
 import React, { Component } from 'react';
-// import Spells from './components/spells';
-import Monsters from './components/monsters';
-import axios from 'axios';
-import logo from './logo.svg';
+
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import Spells from './components/spells';
+import Monsters from './containers/container_monsters.js';
+import logo from './logo.svg';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {monsters: [], spells: []};
-  }
-  componentWillMount() {
-    axios.get('api/monsters')
-      .then(response => this.setState({monsters: response.data.monsters }) )
-      .catch(e => console.log('Error', e));
-    axios.get('api/spells')
-      .then(response => this.setState({spells: response.data.spells }) )
-      .catch(e => console.log('Error', e));
-
-  }
-
   render() {
     return (
       <div className="App">
@@ -29,12 +15,17 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
 
-        <Monsters monsters={this.state.monsters} />
+        <Monsters />
         {/*<Spells spells={this.state.spells}/>*/}
       </div>
     );
   }
 }
 
+App.propTypes = {
+  monsters: React.PropTypes.array,
+  getMonsters: React.PropTypes.func
+}
 
 export default App;
+// export default connect( (state) => ({spells: state.spells.all, monsters: state.monsters.all}), mapDispatchToProps)(App);

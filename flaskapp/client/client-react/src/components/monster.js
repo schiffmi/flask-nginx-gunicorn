@@ -3,25 +3,24 @@ import React, { Component } from 'react';
 class Monster extends Component {
 	render() {
 		const { monster } = this.props;
-		console.log(monster);
 		return (
-			<div className="row">
-				<div className="col-xs-2">
+			<div className="column columns">
+				<div className="column col-md-2">
 					<span>{monster.name}</span>
 				</div>
-				<div className="col-xs-2">
+				<div className="column col-md-2">
 					<span>{monster.size}</span>
 				</div>
-				<div className="col-xs-2">
+				<div className="column col-md-2">
 					<span>{monster.armor_class}</span>
 				</div>
-				<div className="col-xs-2">
+				<div className="column col-md-2">
 					<span>{monster.hit_points}</span>
 				</div>
-				<div className="col-xs-2">
+				<div className="column col-md-2">
 					<span>{monster.speed}</span>
 				</div>
-				<div className="col-xs-2">
+				<div className="column col-md-2">
 					<span>{monster.senses}</span>
 				</div>
 			</div>
@@ -31,7 +30,7 @@ class Monster extends Component {
 }
 
 Monster.propTypes = {
-	monster: React.PropTypes.array
+	monster: React.PropTypes.object
 };
 
 export default Monster;
